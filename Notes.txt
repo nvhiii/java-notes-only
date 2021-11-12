@@ -1,0 +1,1714 @@
+/*
+Key:
+- Chapters end with ")" character
+- Chapter sections end with ":" character
+- Chapter subsections end with "-" character
+- Relevant code provided at end of each section / subsection
+
+https://media.pearsoncmg.com/ph/esm/ecs_liang_ijp_12/cw/content/ExampleByChapters.html
+
+^^ all liang src tb code is in the link above, I just collected them into this src file
+
+Useful Keyboard Shortcuts Reference(s):
+
+https://itnext.io/keyboard-shortcuts-for-a-developer-e6d1203774f6
+
+https://www.indiatoday.in/information/story/computer-shortcut-keys-everyone-should-know-1480158-2019-03-17
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Chapter 9) Objects and Classes
+
+9.1: Introduction
+- Can use OOP for 'reusable software'
+
+9.2: Defining Classes for Objects
+- OOP involves programming using objects
+- instances are often referred to as objects (interchangeable)
+
+state of an object - properties / attributes (aka datafields)
+Behavior of an object - represented through methods
+
+class - a contract that defines an object's (instance's) data fields and methods
+
+instantiation - creating an instance (object)
+
+constructor - a special method in a class which allows for the creation of an instance of the class
+
+Unified Modeling Language (UML) - notation of a class diagram that separates the class and its methods from its instances
+
+9.3: Defining Classes and Creating Objects
+
+client (of a class) - the (OG) class that uses another class to run in the main method of the OG class
+    ** basically a class that uses another class is called this
+
+public class - since you can put multiple classes in a single file, only one class can be public which is determined by the name of the file
+    ** all other classes must be private
+
+9.4: Constructing Objects Using Constructors
+
+- constructors have no return type (not even void)
+
+- invoked using the new operator
+
+no-arg constructor - constructor with no args
+
+default constructor - a public no-arg constructor with an empty body which is implicitly designed ONLY if a class has no explicitly defined constructor
+
+9.5: Accessing Objects via Reference Variables
+
+9.5.1 - Reference Variables and Reference Types
+
+reference variable - contains references to the objects through the usage of a variable
+
+    e.g.
+    ClassName objectRefVar;
+
+reference type - a var of the class type that can reference an instance (object) of the class
+
+9.5.2 - Accessing and Object's Data and Methods
+
+- after instance (object) is created, it's data fields and methods can be invoked using the dot operator (.)
+
+    e.g.
+    objectRefVar.dataField
+
+    or
+
+    objectRefVar.method(args)
+
+instance variable - a field that is dependent on a specific instance (object)
+
+Instance method - needs an (instance) object of class to be created before getting called
+                + need to create object for this, thus often has no args
+
+Static methods - can just be called without creation of object
+                + cannot create object for this method type !!!
+                + usually has args!! (doesn't always have to have args)
+                + also has the keyword STATIC
+
+9.5.3 - Reference Data Fields and the Null Value
+
+null value - is a literal like the boolean literals true and false, which is used as a literal for a reference type (object refvar basically)
+
+NullPointerException - common runtime error which occurs when you invoke a method on a reference var with a null value
+
+9.5.4 - Differences between Variables of Primitive Types and Reference Types
+
+    primitive types - are literal values
+
+    reference types - are references to objects, etc.
+        ** holds a reference to where the contents of the object type are stored in memory
+
+9.6: Using Classes from the Java Library
+
+9.6.1 - The Date Class
+
+    Method(s):
+
+    +Date()                     Constructs a Date object for the current time.
+
+    +Date(elapseTime: long)     Constructs a Date object for a given time in
+                                milliseconds elapsed since January 1, 1970, GMT.
+
+    +toString(): String         Returns a string representing the date and time.
+
+    +getTime(): long            Returns the number of milliseconds since January 1, 1970, GMT
+
+    +setTime(elapseTime: long): void    Sets a new elapse time in the object
+
+9.6.2 - The Random Class
+
+    Method(s):
+
+    +Random()                   Constructs a Random object with the current time as its seed.
+
+    +Random(seed: long)         Constructs a Random object with a specied seed
+
+    +nextInt(): int             Returns a random int value
+
+    +nextInt(n: int): int       Returns a random int value between 0 and n (excluding n).
+
+    +nextLong(): long           Returns a random long value.
+
+    +nextDouble(): double       Returns a random double value between 0.0 and 1.0 (excluding 1.0)
+
+    +nextFloat(): float         Returns a random float value between 0.0F and 1.0F (excluding 1.0F).
+
+    +nextBoolean(): boolean     Returns a random boolean value.
+
+9.6.3 - The Point2D Class
+
+    Method(s):
+
+    +Point2D(x: double, y: double)          Constructs a Point2D object with the specied x- and y-coordinates.
+
+    +distance(x: double, y: double): double Returns the distance between this point and the specied point (x, y).
+
+    +distance(p: Point2D): double           Returns the distance between this point and the specied point p.
+
+    +getX(): double                         Returns the x-coordinate from this point
+
+    +getY(): double                         Returns the y-coordinate from this point
+
+    +midpoint(p: Point2D): Point2D          Returns the midpoint between this point and point p.
+
+    +toString(): String                     Returns a string representation for the point.
+
+Relevant code:
+TestPoint2D.java
+
+9.7: Static Variables, Constants, and Methods
+
+Static variables (class variables) - are often shared by the entire class, and are initialized in value
+
+Instance variables (member / member variable) - tied to specific instance of class, not shared with objects in same class
+    **(no initialized value)
+    **(also declared outside methods)
+
+Instance data fields - often are just data type followed by var = value !!
+
+Instance Method v. Static Method
+
+Instance Method
+1. Can invoke instance method (instance method need an object/instance created of the class therefore, can chain instance methods)
+2. Can access instance variable (instance variables need instance of a class as well, therefore can be accessed)
+3. Can invoke static method (static method can be invoked anywhere in the entire class)
+4. Can access static data field (static data fields shared by entire class)
+
+Static Method
+1. Cannot invoke instance method ^^ look at above reasoning
+2. Cannot access instance variable
+3. Can invoke static method
+4. Can access static data field
+
+Relevant code:
+Circle.java
+TestCircleWithStaticMembers.java
+
+9.8: Visibility Modifiers
+
+- public visibility modifier used to denote they can be accessed from any other class
+
+package-private (or package-access) - when no visibility modifier is used, by default the classes, methods, and data fields are accessible by any class in the same package
+
+Public modifiers - Allows for access of member (class) from inside and outside pkg
+
+    Syntax of package calling (before class and all imports):
+
+    package "PackageName";
+
+Private modifiers - Allows for access of data fields in own class
+
+Protected modifiers - Allows for access of member in its own package
+
+private constructor - only should be used when you want to prohibit the user from creating an instance of the class
+
+9.9: Data Field Encapsulation
+
+Data Field Encapsulation - to prevent direct modifications of data fields,
+declare data fields private using the private modifier!!
+
+- Often, you need to retrieve and modify data fields, to accomplish this with private data fields, you use a getter method.
+
+e.g. of Accessor
+
+    public returnType getPropertyName(); // accessor (getter)
+
+    public boolean isPropertyName(); // e.g. of a boolean accessor
+
+e.g. of Setter
+
+    public void setPropertyName(dataType propertyValue)
+
+Relevant code:
+Circle.java (for CircleWithPrivateDataFields)
+TestCircleWithPrivateDataFields.java
+
+9.10: Passing Objects to Methods
+
+- Objects can be passed as param for methods
+    ** passing an object is actually passing the reference of the object
+
+Pass-by-value - the one mode of passing arguments that java uses
+
+Relevant code:
+TestPassObject.java
+
+
+9.11: Array of Objects
+
+- an array can hold objects as well as primitive-type values
+
+Syntax:
+    Circle[] circleArray = new Circle[10];
+
+    // this stmnt declares and creates an array of 10 circle objects
+   to initialize (objects/instances), you can use a for loop
+
+   for (int i = 0; i < circleArray.length; i++) {
+    circleArray[i] = new Circle();
+
+*when array of objects created using new operator, each element in array is
+ref variable with default value null
+
+**printf is print formatting**
+    - can check formatting documentation whilst using printf, useful for formatting
+
+Relevant code:
+TotalArea.java
+
+9.12: Immutable Objects & Classes
+- occassionally it is desirable to create an object whose contents cannot be changed once object is created
+    - "immutable" class & object
+    - if class is immutable, all data fields must be private w/ no public setter methods
+
+9.13: The Scope of Variables
+
+local variable - a variable defined inside a method
+
+- the scope of a class's variables is the entire class, regardless of where they are declared
+
+- as long as a class variable doesn't interfere with another variables initialization in the scope of the class, the class variable can be declared anywhere
+    ** e.g. local variables in another method aren't affected
+
+hidden variable - if local var has same name as class var, the local var takes precedence and class var is hidden
+
+9.14: This key-word to reference data fields
+
+- the this key-word refers to the object itself
+
+- the this key-word is also used to reference the object's instance variables
+
+9.14.1 - Using this to Reference Data Fields
+
+- the this-keyword gets rid of the hidden variable which is created through the creation of a local variable in a another method
+    ** allows for access of a hidden instance variable
+    ** THIS IS A GOOD PRACTICE
+
+- a hidden static variable can be accessed using ClassName.staticVariable reference
+
+9.14.2 - Using this to Invoke a Constructor
+
+- the this keyword can be used to invoke another constructor from within a constructor
+
+Summary:
+
+1. Class is a template for objects and defines properties of instances(objects) and their behaviors through methods like constructors, etc.
+
+2. Classes are a data type to declare objRefVar, which holds a ref var of the object class
+
+3. Object is an instance of a class, you create an object using the new operator and use the dot operator to access its appropriate data fields and methods
+
+4. Intance variable/ method belongs to an instance of class, therefore they are associated with specific objects
+    Static variable is a local variable tht is shared by all instances of class.
+    A static method can be called without the creation of an instance of a class
+
+5. Every instance of a class can access the class's static var and methods
+
+6. Visibility modifiers specify how class, method, and data are accessed
+    e.g.
+    public - accessible to all clients
+    private - only accessbile inside the class
+
+7. Accessor (getter) method or setter (mutator) to enable clients to see / modify data
+
+8. A getter signature
+    public returnType getPropertyName() {}
+
+   A setter signature
+    public void setPropertyName(dataType propertyValue) {}
+
+9. Parameters passed to methods using pass-by-value. Parameter of primitive type actual value is passed, reference type reference of object is passed
+
+10. Array is an object that can contian primitive types of object types. When array is created, the elements by default are null
+
+11. Immutable objects cannot be modified. To prevent the modification of an object, create immutable class
+
+12. Scope of static and instance variables is the entire class, regardless of where they are declared. (they are class var)
+    ** local variables only have scope of certain method they are in
+
+13. this keyword can be used to refer to the calling object. Also is used inside a constructor to invoke another constructor of the same class
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Chapter 10) Object-Oriented Thinking
+
+10.1: Introduction
+
+- class design
+
+- procedural programming v. object-oriented programming
+
+10.2: Class Abstraction and Encapsulation
+
+class abstraction - separates class implementation from how the class is used
+
+contract - a combo of class fields, methods, and constructors
+
+class encapsulation - details of a class's implementation are encapsulated and hidden from the user
+
+Abstract data type (ADT) - class's type b/c class instantiated, but you don't need to know what goes on in the background
+
+Relevant code:
+TestLoanClass.java
+Loan.java
+
+10.3: Thinking in Objects
+
+- method design
+    ** couples data and methods into objects
+    ** this leads to focus on objects and the operations on objects
+
+object-oriented paradigm vs. procedural
+
+    procedural paradigm - focuses on the design of methods
+
+    object-oriented paradigm - couples data and methods together into objects
+        ** combines power of procedural paradigm that integrates data w/ operations
+
+Relevant code:
+UseBMIClass.java
+BMI.java
+
+10.4: Class Relationships
+
+10.4.1 - Association
+
+    - relations implemented using data fields
+        **different classes access another class which they share in common**
+    - general binary relationship which describes an activity between two classes
+    - can implement associations using data fields and methods
+
+    ** The UML diagrams for association follows certain rules:
+
+        - boxes to represent classes which have solid lines connecting it to another class
+        - a filled-in triangle above the solid lines which labels the relationship between the classes
+        - a role name for the class which goes under the solid line connecting the class (optional)
+        - multiplicity on top of the solid lines next to the class they show the limits for
+            ** for a class connected on multiple sides, the multiplicity goes on the top right
+            ** for a class on the verymost right, the multiplicity goes on the left above the solid line connecting the class
+                ^^ vice versa for vermost left as well
+
+            Syntax:
+
+            m..n (5..60)
+
+
+
+multiplicity - placed at side of class to speicify how many of the class's objects are involved in the relationship in UMl
+
+10.4.2 - Aggregation and Composition
+
+Aggregation - a special form of association that may exist between objects of same class
+    - represents ownership relationship between two objects'
+    - models a "has-a" relationship
+
+Aggregating object - the owner object
+
+Aggregating class - aggregating object's class
+
+Aggregated object - subject object
+
+Aggregated class - subject object's class
+
+Composition - aggregation between two objects if the existence of the aggregated object is dependent on the aggregating object
+
+    e.g.
+
+       Student has a name, composition (because name is aggregated obj dependent on the aggregating obj student)
+
+       Student has an address, aggregation (because address is aggregated obj that is NOT dependent on the aggregating obj student // basically the Address object can exist on its own)
+
+If aggregated obj dependent on aggregating obj --> COMPOSITION
+
+If aggregated obj is NOT dependent on aggregating obj --> AGGREGATION
+
+    - the OWNER object is called an aggregating object and its class is called an aggregating class
+    - the SUBJECT object is called an aggregated object, and its class is called an aggregated class
+    - this is called composition if the existence of the aggregated object is dependent on the aggregating object
+    - it implies one object exclusive ownership
+
+    - a filled black diamond attached to aggregating class represents composition
+
+    - an unfilled white diamond attached to aggregating class represents aggregation
+
+    e.g.
+    public class Person {
+
+    private Person supervisor;
+
+    }
+    // exemplifies a has-a relationship
+
+
+10.5: Case Study: Designing the Course Class
+
+Relevant code:
+TestCourse.java
+Course.java
+
+10.6: Case Study: Designing Class for Stacks
+
+stack - data structure that holds data in a last-in, first out fashion
+    ** or a first-in, last-out fashion
+
+Relevant code:
+TestStackOfIntegers.java
+StackOfIntegers.java
+
+Miscellaneous Notes:
+
+public keyword - declare's member's access as public
+
+static keyword - used to share same var or method of given class (mostly for memory management)
+
+void keyword - denotes that a method does not have a return type
+
+API - application programming interface (offering service to other software)
+
+10.7: Processing Primitive Data Type Values as Objects
+
+    - primitive data type values are not objects
+    (wrapping data type into object)
+    e.g.
+        - int to Integer
+        - double to Double
+        - char to Character
+
+Using these wrapper classes, you can process primitive data types as objects
+    e.g. of Wrapper classes in java.lang package
+    - Boolean
+    - Character
+    - Double
+    - Float
+    - Byte
+    - Short
+    - Integer
+    - Long
+
+Each of these numeric wrapper classes contain a method to "convert" objects into primitive types"
+    e.g.
+    doubleValue(), floatValue(), intValue(), longValue(), shortValue(), byteValue()
+
+Can construct wrapper object from primitive data type or from string
+    e.g.
+    new Double(5.0) = new Double("5.0")
+
+Instances of wrapper classes are immutable, meaning once the objects are created, their values cannot be changed
+
+Each numeric wrapper class has MAX_VALUE(Byte, Short, Integer, and Long)
+Each numeric wrapper class has MIN_VALUE
+    **MIN_VALUE shows minimum from byte, short, int, and long
+    **MIN_value shows minimum POSITIVE float and double
+
+Each numeric wrapper class contains doubleValue(), floatValue(), intValue(), longValue(), and shortValue()
+    - returns double, float, int, long, or short
+
+    Syntax:
+
+    new Double(12.4).intValue() // returns 12
+    new Integer(12).doubleValue() // returns 12.0
+
+Numeric wrapper class also contains compareTo method which returns 1, 0, or -1
+Based off if the number is greater than, equal to, or less than the other number
+
+e.g.
+new Double(12.4).compareTo(new Double(12.3)); // returns 1
+
+
+static valueOf methods
+    - this method creates a new object initialized to the value represented by the specified string
+
+    e.g.
+    Double doubleObject = Double.valueOf(12.4);
+
+static parsing methods
+    - Each numeric wrapper class hass two overloaded parsing methods to parse a numeric string
+      into an appropriate numeric value based on 10 or any radix (2 for binary, 8 for octal, 16 for hexadecimal)
+
+    e.g.
+    public static parseInt (String s)
+    public static int parseInt (String s, int radix)
+
+    Integer.parseInt("11, 2"); // returns 3 because of binary
+
+    ** You can also convert a decimal number into hex number using format method
+
+    e.g.
+
+    String.format("%x", 26); // returns 1A
+
+10.8: Automatic Conversion Between Primitive Types and Wrapper Class Types
+
+boxing - conversion of a primitive value to a wrapper object
+
+autoboxing - when the compiler automatically boxes a primitve value in a context requiring an object
+
+unboxing - conversion of a wrapper object to a primitive value
+
+autounboxing - when the compiler automatically unxboxes an object in a context requiring a primitive value
+
+e.g.:
+    Integer intObject = new Integer(2); (is equal to)
+    ^classObj ^objRefVar            ^primitive value
+                ^wrapper object
+
+    Integer intObject = 2;
+
+    **this is due to autoboxing**
+
+    int i = 1; (is equal to)
+    Integer i = new Integer(1);
+
+    **this is due to autounboxing
+
+
+10.9: The BigInteger and BigDecimal Classes
+
+- can be used to represent integers or decimal numbers of any size and precision
+**contained in the java.math package is immutable
+
+- BigInteger can represent an integer of any size
+- Also can create instances of these both using BigInteger(String) or BigDecimal(String)
+
+- used with the methods of add, subtract, multiply, divide, and remainder
+
+- divide method may throw ArithmeticException if result cannot be terminated
+** use overloaded **
+    divide(BigDecimal d, int scale, int roundingMode)
+
+    e.g.:
+    divide(b, 20, BigDecimal.ROUND_UP)
+
+Relevant code:
+LargeFactorial.java
+
+10.10: The String Class
+
+- String objects are immutable, it cannot be changed once it is created
+    Method(s):
+        - charAt(index)
+        - length()
+        - substring
+        - indexOf
+        - lastIndexOf
+        - equals
+        - compareTo
+        - trim()
+        - toLowerCase()
+        - toUpperCase()
+
+10.10.1 - Constructing a String
+
+syntax:
+    String newString = new String(stringLiteral);
+
+**You can also create a string from array of characters**
+
+e.g.
+    char[] charArray = {'G', 'o', 'o', 'd', ' ', 'D', 'a', 'y'};
+    String message = new String(charArray);
+
+10.10.2 - Immutable Strings and Interned Strings
+
+- immutable object; contents cannot be changed
+- because strings are immutable, JVM uses unique instance of string literals to improve efficiency and save memory (interned string)
+- therefore, even if two string objects have same contents, they are not necessarily equal
+
+e.g.
+    String s1 = "Welcome to Java";
+    String s2 = new String("Welcome to Java");
+    String s3 = "Welcome to Java";
+
+    s1 != s2
+    but,
+    s1 == s3
+
+10.10.3 - Replacing and Splitting Strings
+    Methods:
+    - replace
+        syntax:
+        "Welcome".replace("e", "AB") returns a new string, WABlcomAB.
+
+    - replaceFirst
+        syntax:
+        "Welcome".replaceFirst("e", "AB") returns a new string, WABlcome.
+
+    - replaceAll
+        syntax:
+        String s = "a+b$#c".replaceAll("[$+#]", "NNN");
+        System.out.println(s);
+
+        regex[$+#] specifies chars to replace: $, +, and #
+        thus this prints out aNNNbNNNNNNc
+
+    ** these all return a new string derived from original string without altering the og string
+
+    - split
+    ** used to extract tokens from string with specified delimiter(s)
+        syntax:
+        String[] tokens = "Java#HTML#Perl".split("#");
+
+        for (int i = 0; i < tokens.length; i++)
+            System.out.print(tokens[i] + " ");
+
+        displays Java HTML Perl because # is the delimiter and the for loop iterates the array tokens, adding a space in between each word
+
+10.10.4 - Matching, Replacing, and Splitting by Patterns
+
+- often there will be a need to write code that validates user input
+    ** a regular expression, or REGEX is a string that describes a pattern for matching a set of strings
+
+    Method(s):
+    - matches
+    ** matches fixed strings and set of strings that follow a pattern
+
+        syntax:
+        "Java".equals("Java");
+
+        "Java is powerful".matches("Java.*")
+
+        ** Java.* is a regex which describes a string pattern that begins with Java followed by any zero of more characters
+        or
+
+regex - regular expression that describes a pattern for matching, replacing, or splitting a string
+
+        "440–02–4534".matches("\\d{3}–\\d{2}–\\d{4}")
+
+        ** \\d represents a single digit, \\d{#} represents # digits
+        or
+
+        String[] tokens = "Java,C?C#,C++".split("[.,:;?]");
+
+        for (int i = 0; i < tokens.length; i++)
+            System.out.println(tokens[i]);
+
+        ** this [.,:;?] specifies a pattern that matches any of the char inside the square brackets, and thus splits the string
+
+        result: Java C C# C++
+
+10.10.5 - Conversion between Strings and Arrays
+
+- strings can be converted into an array and vice versa
+
+- for strings to array of char, use toCharArray method
+
+    syntax:
+    char[] chars = "Java".toCharArray();
+
+    char[0] is J
+    char[1] is a
+    char[2] is v
+    char[3] is a
+
+- can also use getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)
+    ** to copy substring of string from index srcBegin to index srcEnd-1 into array dst starting from index dstBegin
+    ** gets char from another string from firstNum (inclusive) to nextNum specified, specified array, then adds into specified index
+
+10.10.6 - Converting Characters and Numeric Values to Strings
+
+- convert numbers into strings using overloaded static valueOf method
+
+    syntax:
+    String.valueOf(data);
+
+10.10.7 - Formatting Strings
+
+- String class contains format method to return formatted string
+
+    syntax:
+    String.format(format, item1, item2, ..., itemn);
+
+    Reference to formatting:
+    https://stackabuse.com/how-to-format-a-string-in-java-with-examples/
+
+    Format specifiers:
+    %c - Character
+    %d - Decimal number (base 10)
+    %e - Exponential floating-point number
+    %f - Floating-point number
+    %i - Integer (base 10)
+    %o - Octal number (base 8)
+    %s - String
+    %u - Unsigned decimal (integer) number
+    %x - Hexadecimal number (base 16)
+    %t - Date/time
+    %n - Newline
+
+    Formatting cmds:
+    \b - Insert backspace
+    \f - Next line's first character starts to the right of current line's last character
+    \n - Insert newline
+    \r - Insert carriage return
+    \t - Insert tab
+    \\ - Insert backslash
+    %% - Insert percentage sign
+
+10.11: The StringBuilder and StringBuffer Classes
+
+- these are mutable and can be used where a string is used (THUS CAN BE CHANGED)
+- can add, insert, or append new contents into their objects
+
+- methods for modifying the buffer in StringBuffer are synchronized
+    ** only one task allowed to execute the methods
+
+- use StringBuffer if class might be accessed by multiple taks (concurrent programming)
+
+- use StringBuilder if class is accessed by single task (no synchronization)
+    ** Has three constructors and more than 30 methods to manage the builder and modify the strings in the builder
+
+    syntax:
+    StringBuilder(); // empty string builder constructed with capacity of 16
+
+    StringBuilder(capacity: int); // string builder constructed with capacity of specified int
+
+    StringBuilder(s: String);   // string builder constructed with specified string
+
+10.11.1 - Modifying Strings in the StringBuilder
+
+- there are many methods in the stringbuilder class to append, insert, delete, and replace a specified position in string builder
+
+    Method(s)
+    +append(data: char[]): StringBuilder    // appends a char array into string builder
+
+    +append(data: char[], oset: int, len: int):
+    StringBuilder                           // appends a subarray in data into this string builder
+
+    +append(v: aPrimitiveType): StringBuilder   // appends a primitive-type value as a string to this builder
+
+    +append(s: String): StringBuilder           // appends a string to this string builder
+
+    +delete(startIndex: int, endIndex: int):
+    StringBuilder                               // Deletes characters from startIndex to endIndex-1
+
+    +deleteCharAt(index: int): StringBuilder    // deletes a character at a specified index
+
+    +insert(index: int, data: char[], oset: int,
+    len: int): StringBuilder                    // inserts a subarray of the data in the array into the builder at the specified index
+
+    +insert(oset: int, data: char[]):
+    StringBuilder                               // Inserts data into this builder at the position offset.
+
+    +insert(oset: int, b: aPrimitiveType):
+    StringBuilder                               // Inserts a value converted to a string into this builder.
+
+    +insert(oset: int, s: String): StringBuilder   // Inserts a string into this builder at the position offset
+
+    +replace(startIndex: int, endIndex: int, s:
+    String): StringBuilder                      // Replaces the characters in this builder from startIndex
+                                                   to endIndex – 1 with the specied string
+
+    +reverse(): StringBuilder                   // Reverses the characters in the builder
+
+    +setCharAt(index: int, ch: char): void      // Sets a new character at the specied index in this
+                                                   builder
+
+    ** if a string does not need to be changed, use String not StringBuilder **
+
+10.11.2 - The toString, capacity, length, setLength, and charAt Methods
+
+- There are also methods to manipulate string builders and obtain their properties
+
+    Method(s)
+    +toString(): String // Returns a string object from the string builder.
+
+    // the toString method when used on a object returns by default ObjectClass@hexadecimal of object hashcode if an overloaded toString is not created
+    // this is due to the toString method in the Object class
+
+    +capacity(): int    // Returns the capacity of this string builder.
+
+    +charAt(index: int): char   // Returns the character at the specied index.
+
+    +length(): int  // Returns the number of characters in this builder.
+
+    +setLength(newLength: int): void    // Sets a new length in this builder.
+
+    +substring(startIndex: int): String // Returns a substring starting at startIndex.
+
+    +substring(startIndex: int, endIndex: int): // Returns a substring from startIndex to endIndex – 1.
+        String
+
+    +trimToSize(): void // Reduces the storage size used for the string builder.
+
+10.11.3 - Case Study: Ignoring Nonalphanumeric Characters When Checking Palindromes
+
+Relevant code:
+PalindromeIgnoreNonAlphanumeric.java // gotta do this in the src
+
+Summary:
+
+1. Procedural paradigm focuses on designing methods. Object-oriented paradigm couples data and methods together in objects.
+    Object-oriented programming combines procedural paradigm with dimension of data in operations.
+
+2. Java offers way to wrap primitive data types into an object
+
+3. Java can automatically convert a primitive-type value to corresponding wrapper object & vice versa
+
+4. BigInteger class for computing & processing any size integers. BigDecimal to compute and process floating-point nums with precision
+
+5. String object is immutable.
+    interned string object - when the JVM stores two literal strings w/ same character sequence in a single object
+
+6. Regular expression (regex) is a string that describes a pattern for matching a set of strings (match, replace, split)
+
+7. StringBuilder and StringBuffer used to replace String class (b/c they are mutable)
+    ** use if the string contents will change
+    ** otherwise use String class
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Chapter 11) Inheritance and Polymorhpism
+
+11.1: Introduction
+
+Inheritance - the ability to define new classes from existing classes
+    ** powerful feature for reusing software
+
+11.2: Superclasses and Subclasses
+
+- Inheritance enables the definition of a general class (superclass) and extend to a subclass
+
+subclass - a class extended from another class
+    ** child class / extended class / derived class
+    ** inherts all accessible data fields and methods from superclass and may add data fields and methods
+
+Inheritence: You could extend a class at most once (Every class could only have 1 parent)
+    ** Inheritence is like what you have with exceptions, where there is one big exception that lets its child classes to extend the parent, and so on, it continues on - like a family tree. 
+    ** Using "this" keyword to access your class's constructor, used to initialize the constructor partially. 
+
+superclass - class that another class that extends from
+    ** parent class / base class
+
+subtype - type defined by a subclass
+
+is-a relationship - subclass "is-a" part of superclass
+
+** once again, private data fields in a class cannot be accessed from another class
+** therefore, subclasses cannot access private data fields in their corresponding superclass
+
+Key Takeaways Regarding Inheritance:
+
+- Subclass is NOT a subset of superclass, instead it has more info and methods than the superclass
+
+- Private data fields in superclass not accessible outside the class, therefore cannot be used directly in subclass
+    ** they can be accessed/modified through public accessors/mutators ONLY IF defined in the SUPERCLASS
+
+- Not all is-a relationships should be modeled using inheritance b/c not all subclasses has a is-a relationship w/ others under the same superclass
+
+- Don't extend a class unless the classes have an "is-a" relationship
+
+- Java does not have multiple inheritance, thus you CANNOT derive subclass from several classes
+    ** This is called single inheritance, where a subclass can ONLY have one parent
+
+11.3: Using the super Keyword
+
+- super refers to the superclass (parent) & invokes superclasses methods and constructors
+
+- subclass inherits accessible data fields and methods
+
+    ** this reference can be used to call a superclass constructor or a superclass method
+
+Relevant code:
+SimpleGeometricObject.java
+CircleFromSimpleGeometricObject.java
+RectangleFromSimpleGeometricObject.java
+TestCircleRectangle.java
+
+11.3.1 - Calling Superclass Constructors:
+
+- constructors of a superclass are not inherited by a subclass, but they can be invoked using super keyword
+
+    e.g.
+
+    super() or super(args);
+
+    public Circle(double radius, String color, boolean filled) {
+        super(color, filled); // this refers to the superclass geometricObject's args constructor
+        this.radius = radius;
+    }
+
+11.3.2 - Constructor Chaining
+
+- constructor may invoke overloaded constructor(multiple same name constructors, diff param) or superclass constructor
+
+- constructing an instance of a class invokes constructors of all superclasses along inheritance chain until the last constructor along the hierarchy is called
+    ** constructor chaining^^
+
+- UML Diagram of: Parent(base) class is super class, child(derived) class is a sub-class
+
+    simple example of constructor chaining:
+
+    1 public class Faculty extends Employee {
+    2   public static void main(String[] args) {
+    3       new Faculty();
+    4   }
+    5
+    6   public Faculty() {
+    7       System.out.println("(4) Performs Faculty's tasks");
+    8   }
+    9  }
+    10
+    11  class Employee extends Person {
+    12      public Employee() {
+    13          this("(2) Invoke Employee's overloaded constructor");
+    14          System.out.println("(3) Performs Employee's tasks ");
+    15  }
+    16
+    17      public Employee(String s) {
+    18          System.out.println(s);
+    19      }
+    20  }
+    21
+    22  class Person {
+    23      public Person() {
+    24          System.out.println("(1) Performs Person's tasks");
+    25      }
+    26   }
+
+** if a class is designed to be extended, provide a no-arg constructor to avoid errors
+
+11.3.3 - Calling Superclass Methods
+
+- keyword super can be used to reference method other than constructor in superclass
+    ** (parents call their parents, can never call constructor using super.super THIS IS WRONG)
+    syntax:
+
+    super.method(args);
+
+- You could chain super constructors if the parent has a parent.
+    ** everything that belongs to the parent, the parent should print it,
+    or get the methods from the parent class instead of doing the operations from a child class, child class should only be reponsible for its own behavior, like providing the toString method.
+     
+- Using "super" keyword to access the constructor and methods of Parent class
+- Superflous 
+
+
+11.4: Overriding Methods
+
+- to override a method, the method must be defined in the subclass using same signature as its superclass
+
+- we override with the @Override above the method
+
+- we only override because there is ambiguity in regards to the parents class method and the child class method have a same method signature
+
+- Overriding method must have same signature as overridden method and same/compatible return type
+    ** signature is part of method declaration, it is the method name + params
+
+- Instance method can be overridden only if it is accessible
+    ** private method cannot be overridden
+
+- if a a method is overridden, it cannot be called
+8
+- Static method can also be inherited but cannot be overridden
+
+// This topic is sort-of confusing, will revisit this in more depth later**
+
+11.5: Overriding vs. Overloading
+
+- overriding is to provide a new implementation for a method in the subclass
+    ** if there is a subclass of a superclass with same method signature as the method in the superclass, the subclass method would override the method in the superclass
+    ** lose access to parents method, etc.
+    ** common practice to often override parents method
+
+- overloading is to define multiple methods w/ the same name but diff signatures
+    ** same method name except for params, therefore is overloading
+    ** don't lose access to parenets methods, etc.
+    ** can use parents method in the childs method by calling it
+
+
+∵
+- overridden methods are in diff classes by inheritance (super / subclass)
+
+- overloaded methods can be either in same class of diff classes by inheritance
+
+- overridden methods have same signature
+
+- overloaded methods have same name but diff param
+
+    syntax:
+
+    public class Circle extends GeometricObject {
+
+        @Override
+        public String toString0 {
+            return super.toString() + "\n" + "radius is " + radius;
+        }
+    }
+
+    ** the @Override is called override annotation, which is oft3en placed before the overriding method
+        Using this annotation, mistakes can be avoided
+
+    ** override is good to use for equals method
+
+    e.g.
+
+    public boolean equals(className classObjType) {
+        ... insert statements here
+    }
+
+    public boolean equals(subclassName subclassType) {
+        super.equals(subclassType);
+    }
+
+11.6: The Object Class and Its toString() Method
+
+- Every class in Java is descended from the java.lang.Object class
+
+    syntax:
+    public String toString()
+
+- invoking toString() on object returns a string that describes the object
+
+Common Issue with toString() Method:
+
+    e.g.
+    Loan loan = new Loan();
+    System.out.println(loan.toString());
+
+    // this displays Loan@15037e5 (binary bs) <- object class + @ + hexadecimal of object
+
+** To avoid this issue, override the toString method in the Object class
+
+11.7: Polymorphism
+
+- means that a var of supertype can refer to subtype object
+
+There are 3 Pillars of OOP (Object Oriented Programming)
+
+1. Data hiding in ENCAPSULATION
+
+2. Inheritance -  your class and other class, your class gets something from the other class (child class gets from the parent class etc.)
+    ** inherits attributes and methods from another class
+    ** Each class has exactly one parent, something exclusive to JAVA
+    ** this is a "IS A" relationship unike composition & aggregation, which are "HAS A" relationships
+    ** instance variable - created when object created
+
+    notes:
+    ** yes, you can call methods of parent class, but only the public methods
+    ** constructor of the parent is called in the 1st stmnt of constructor / if no call to super, compilar puts it in for you
+    ** if a subclass is created w/o a superclass but now it has the said parent class, it has additional fields
+    ** subclass does inherit private data fields of super class (in regards to the object created)
+
+3. Polymorphism
+    ** an object of a subclass can be used wherever its superclass object's reference is used
+    ** Uses methods attained from inheritance to perform other tasks
+
+    e.g. Shape myShape = new Rectangle();
+        ** as long as subtype class "IS A" object supertype (this is stored in a supertype var) **
+
+        superclass var = subclass object();
+
+    concept is that even though it is restricted by types, must have reference of same type 
+        ** (only methods you could call are things of type of the reference),
+
+
+    Using array of objects to find out if they are siblings
+
+    How to tell if two objects are siblings: assigned an object of subclass to a superclass reference var
+        ** Use an array of objects to find out if they are siblings
+
+        e.g. 
+
+        for (Shape shp : listOfShapes) {    // enhanced for-loop
+
+            System.out.println("color: " + shp.getColor());
+        }
+
+    ** You can create another method in the superclass to resolve issue of subclass method not running with object of super type as param
+
+abstract method - method w/ no code, just for type usage, superclass method that is to be overridden by subclass methods
+
+    Syntax:
+
+    public abstract returnType methodName();
+
+        ** for the children, add @Override before every abstract method inherited by subclasses
+
+    ** as soon as you have single abstract method in a class, the class needs to be declared abstract
+
+    Syntax:
+
+    public abstract class className {
+        ... add data fields and methods here
+    }
+
+    abstract class - should only have abstract class so children can inherit methods
+        - the children inherit all methods, so they can call methods
+
+        - the compiler sticks in super via the children/subclasses
+
+        - NOTHING happens to the constructors, instantiation just can't be done normally through the abstract class
+            ** to create object of abstract class, use polymorphism where subclass type is an object super type
+
+        - can still have regular methods
+
+        - you can use this in a collection of data (array, etc.)
+
+        - in the subclass constructors, you should use super with the params from the args to instantiate
+
+
+    concrete class - can instantiate objects (no special syntax)
+
+
+
+Relevant code:
+PolymorphismDemo.java // review this code
+
+** This topic is sort-of confusing as well, check back later
+
+11.8: Dynamic Binding:
+
+- determines which method is called based off the actual type
+
+- bascially when compiler decides which method to run at runtime
+
+- a method can be implemented in several classes in inheritance chain. JVM decides which is invoked at runtime
+
+- when compiler cannot compile call/binding at compile time
+
+Which method: overloaded / overridden method is invoked first?
+
+- a variable must be declared a type
+
+declared type - type that declares a var is called vars declared type
+    
+    type - variables and expressions all have this; e.g. int, double, Object, etc.
+
+    ** var of reference type can hold null or reference to instance of declared type
+        ** instance may be created using the constructor of declared type or subtype
+
+
+actual type - the actual class for object referenced by var (the type pointed to by the var)
+
+- the method that invokes an object is determined by the object's actual type // known as dynamic binding
+
+    e.g. of declared and actual type
+    Object o = new GeometricObject();
+
+    ** Object is the declared type
+    ** GeometricObject is the actual type b/c o references object created using new GeometricObject()
+        ** the toString() method invoked is based off the actual type
+
+Relevant code:
+DynamicBindingDemo.java
+
+11.9: Casting Objects and the instanceof operator
+
+- typechecking (of declared an actual type by compiler)
+- object reference can be typecast into another object reference
+
+    e.g.
+
+    m(new Student()) (is equals to)
+
+    Object o = new Student();
+    m(o);
+
+    // implicit Casting ^^
+        ** Legal b/c Student is an instance of Object (upcasting)
+        ** Always possible b/c instance of subclass always is an instance of superclass
+
+Q: Why doesn't Student b = o not work?
+    A: b/c Student object is instance of Object, but Object is not instance of Student
+
+    To solve this issue that the compiler cannot figure out do:
+
+    Student b = (Student)o
+
+    // explicit casting ^^ (downcasting) ** THIS IS NOT OBJECT ORIENTED PROGRAMMING **
+        ** Casting insance of superclass to var of subclass must be used to confirm intention of downcasting using the above notation
+        ** For this casting to be successful, make sure object cast is an instance of subclass
+            ** otherwise, ClassCastException occurs
+
+    ** use instanceof operator to downcast
+    e.g.
+
+    void someMethod(Object myObject) {
+
+        if (myObject instanceof Circle) {
+            System.out.println("The circle diameter is" + ((Circle)myObject).getDiameter());
+
+        }
+    }
+    /**
+    So this method is checking if superclass object myObject is an instance of subclass type Circle
+    Then downcasts in the println stmnt using the proper notation
+    */
+
+    ** or you can use getClass method to downcast
+    e.g.
+
+        if (myObject.getClass().getName().equals(Circle)) {
+
+        }
+
+11.10: The Object's equals Method
+
+- equals(Object) method is useful method definted in the object class
+
+    syntax:
+
+    object1.equals(object2);
+
+    object1.equals(object2);
+
+    public boolean equals(Object obj) {
+        return this == obj;
+    }
+
+    /**
+    This checks two reference variables point to the same object using == operator
+    */
+
+11.11: The ArrayList Class
+
+- ArrayList object can be used to store a list of objects
+
+    Method(s):
+
+    +ArrayList()
+    +add(e: E): void
+    +add(index: int, e: E): void
+    +clear(): void
+    +contains(o: Object): boolean
+    +get(index: int): E
+    +indexOf(o: Object): int
+    +isEmpty(): boolean
+    +lastIndexOf(o: Object): int
+    +remove(o: Object): boolean
+    +size(): int
+    +remove(index: int): E
+    +set(index: int, e: E): E
+
+- Arraylist is a generic class with generic type E
+    ** Specify concrete type to replace E
+
+    e.g.
+
+    ArrayList<String> cities = new ArrayList<String>();
+
+        ^^ here, E is replaced with the var cities
+
+11.12: Useful Methods for Lists
+
+11.13: Case Study: A Custom Stack Class
+
+11.14: The protected Data and Methods
+
+11.15: Preventing Extending and Overriding
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Chapter 12) Exception Handling and Text I/O
+
+12.1: Introduction
+
+- Exceptions are runtime errors
+- Exception handling enables a program to deal with runtime errors and continue its normal execution
+    e.g.
+    https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/     // these are built in exceptions (There is a hierarchy of exceptions / NOT A LIST // class notes & slides)
+    - ArrayIndexOutOfBounds
+    - InputMismatchException, etc.
+
+exception - an object that represents an error or a condition that prevents execution from proceeding normally
+
+12.2: Exception-handling Overview
+
+- exceptions are thrown from a method, and the caller of the method can catch and handle the exception
+
+- program method should never terminate the program, should be up to user
+- Java enables a method to throw an exception that be caught and handled by the caller
+
+    syntax:
+    public ...
+        if (conditional)
+            throw new EXCEPTION("output to caller") // exception is an object thrown (specified exeception is dataType in java API)
+            // this is the throw statment ^^
+
+    public static void main(String [] args) {
+
+        stmnts...;
+
+        try {
+            stmnts / methods...
+            // can have stmnt of method that throws exception here as well
+        } catch (EXCEPTION catchBlockParameter) {   // catch-block header // catch-block param is usually ex
+            code to process exception...
+            // usually a print statement
+        }
+
+        stmnts...
+    }
+
+throwing an exception - the execution of a throw stmnt
+    ** exception is an object created from an exception class
+- when an exception is thrown, normal execution is interrupted
+- "throw an exception" passes an exception from one place to another
+    ** the stmnt to invoke the method is in a "try" block
+
+- the try block contains code that is executed in normal circumstances
+
+- the exception is caught by the catch block
+
+- the catch block is executed to handle the exception
+
+** advantage of using exception handling
+    - it enables a method to throw an exception to its caller, enabling the caller to handle the exception
+
+- often, methods called do not know what to do in case of an error
+    **this is typically the case for library methods
+    ** key benefit is separating the detection of error (in called method) from the handling of error (in calling method)
+
+**runtime exceptions don't have to be declared, thus every other exception must be included after the called method param as well as in method body in the called method**
+
+Relevant code:
+Quotient.java
+QuotientWithIf.java
+QuotientWithMethod.java
+QuotientWithException.java
+InputMismatchExceptionDemo.java
+
+12.3: Exception Types
+
+- the root class for exceptions is java.lang.Throwable
+
+** The class names Error, Exception, and RuntimeException are all exceptions and all of the errors occur at runtime
+
+- you can create own exception classes by extending Eception or a subclass of Exception
+
+- exception classes can be classified into 3 major types:
+    1. System errors - thrown by JVM and are represented in the Error class
+        (UNCHECKED)
+        ** Error class describes internal system errors
+
+    2. Exceptions - represented by Exception class, which describes errors caused by your program and by external circumstances
+        ** these errors can be caught and handled by your program
+
+    3. Runtime Exceptions - represented in RuntimeException class - which describes programming errors
+        (UNCHECKED)
+        runtime exceptions don't have to be declared as usual
+            ** runtime exceptions are unchecked exceptions (their subclasses too)
+
+** if its possible to rethrow an exception, it throws it to another method **
+    e.g.
+
+    for example, if the exception is in method1 and another method, method2 calls it and it throws exception right after its param in the method signature, and if said method2 is called in another method, the exception travels up the stack
+        ** must have checked exceptions (the middle method(s) throws exception)
+
+        **All other exceptions other than runtime and errors are checked exceptions, needing try and catch blocks
+
+    stack diagram is a very good way to trace exception rethrows** also in main, the "throw exception" is optional
+
+12.4: More on Exception Handling
+
+- A handler for exception is found through chain of reverse method calls, starting from current method
+
+12.4.1 - Declaring Exceptions
+
+- Often, to declare an exception in a method, you do it in the method header using: throws EXCEPTION after the method params
+    ** if there are multiple exceptions to be thrown, go to the next line and do: throws EXCEPTION1, EXCEPTION2, ..., etc. (the exceptions are separated by commas)
+
+12.4.2 - Throwing Exceptions
+
+- program that detects an error which creates an instance of the appropriate exception type
+
+12.4.3 - Catching Exceptions
+
+- catch stmnt and params comes directly after try block
+
+12.4.4 - Getting Information from Exceptions
+
+- exception object has valuable info about exception
+
+    Method(s)
+
+    from java.lang.Throwable, you can get info regarding the exception using these methods:
+
+    +getMessage(): String   // Returns the message that describes this exception object.
+
+    +toString(): String // Returns the concatenation of three strings: (1) the full name of the exception
+                           class; (2) ":" (a colon and a space); and (3) the getMessage() method
+
+    +printStackTrace(): void    // Prints the Throwable object and its call stack trace information on the
+                                       console.
+
+    +getStackTrace():
+    StackTraceElement[] // Returns an array of stack trace elements representing the stack trace
+                               pertaining to this exception object.
+
+Relevant code:
+
+TestException.java
+
+12.4.5 - Example: Declaring, Throwing, and Catching Exceptions
+
+Relevant code:
+
+CircleWithException.java
+TestCircleWithException.java
+
+
+12.5: The finally Clause
+
+- executed regardless if exception occurred or not
+    ** if no exceptions are arised, finally stmnts are executed and next stmnt after try stmnt is executed
+    ** if stmnt causes an exception in try block that is caught in the catch block, rest of try is skipped and catch is exected and the finally is then executed as well
+    ** if one stmnt causes an exception that is not caught in catch block(s), the other try stmnts are skipped and finally is executed
+
+    ** finally block executes even if return statement prior to reaching the finally block
+
+- should come after try/catch block which catch checked exceptions
+
+12.6: When to Use Exceptions
+
+- a method should throw an exception if the error needs to be handled by its caller
+
+12.7: Rethrowing Exceptions
+
+- occurs when the handler cannot process the exception, or wants to let it's caller be notified of the exception
+
+    e.g.
+
+    try {
+        stmnts...
+    } catch (Exception ex) {
+        stmnts...
+        throw ex;
+    }
+    // in this code snippet, throw ex rethrows exception to caller so other handlers in  caller can process the exception
+
+12.8: Chained Exceptions
+
+chained exception - throwing an exception along with another exception
+
+- when in the try block of the exception handling there is another method that throws an exception, and then there is the catch block to catch another exception as well
+
+Relevant code:
+ChainedExceptionDemo.java
+
+12.9: Defining Custom Exception Classes
+
+- You can define a custom exception class by extending the Exception class
+
+    Syntax:
+
+    public class ClassName extends Exception {
+                    ^ This is the Exception you create, can be any name
+    }
+
+
+Relevant code:
+InvalidRadiusException.java
+TestCircleWithCustomException.java
+
+12.10: The File Class
+
+- file class obtains file/directory properties, deletes and renames files/directories, and creates directories
+
+Absolute file name (full name) - file name with complete path and drive letter
+
+directory path - everything from absolute file name except the file name itself
+
+Relative file name - the file name without the path
+
+- file class does NOT contain methods for reading and writing file contents
+
+    Method(s):
+
+    +File(pathname: String)
+    +File(parent: String, child: String)
+    +File(parent: File, child: String)
+    +exists(): boolean
+    +canRead(): boolean
+    +canWrite(): boolean
+    +isDirectory(): boolean
+    +isFile(): boolean
+    +isAbsolute(): boolean
+    +isHidden(): boolean
+    +getAbsolutePath(): String
+    +getCanonicalPath(): String
+    +getName(): String
+    +getPath(): String
+    +getParent(): String
+    +lastModied(): long
+    +length(): long
+    +listFile(): File[]
+    +delete(): boolean
+    +renameTo(dest: File): boolean
+    +mkdir(): boolean
+    +mkdirs(): boolean
+
+** directory separator in Windows is a "\", but in a string literal it should be written as "\\"
+
+** never use absolute file names in program
+    ** this is because the code may not work in other Operating Systems (e.g. Linux, OS, etc)
+
+** forward slashes work on all platforms
+
+    e.g.
+
+    new File("image/us.gif");
+
+Relevant code:
+TestFileClass.java
+
+12.11: File Input and Output
+
+- use the Scanner class for reading text data from a file
+- use PrintWriter class for writing text data to a file
+
+- File object encapsulates the properties of a file/path but does not contain the methods to write/read data to/from a file
+
+12.11.1 - Writing Data Using PrintWriter
+
+    Syntax:
+
+    PrintWriter output = new PrintWriter(filename);
+
+    Method(s):
+
+    +PrintWriter(lename: String)
+    +print(s: String): void
+    +PrintWriter(le: File)
+    +print(c: char): void
+    +print(cArray: char[]): void
+    +print(i: int): void
+    +print(l: long): void
+    +print(f: f loat): void
+    +print(d: double): void
+    +print(b: boolean): void
+
+    Also contains the overloaded
+    println methods.
+
+    Also contains the overloaded
+    printf methods.
+
+- must use close() method to close the PrintWriter object
+    ** or else you risk the data not being saved properly in the file
+
+Relevant code:
+WriteData.java
+
+12.11.2 - Closing Resources Automatically Using try-with-resources
+
+- Since programmers often forget to close the file, the JDk (java development kit) provides new try-with resources syntax that auto closes files
+
+    Syntax:
+
+    try (declare and create resources) {
+        rerources to process the file...
+    }
+
+Relevant code:
+WriteDataWithAutoClose.java
+
+12.11.3 - Reading Data Using Scanner
+
+- Scanner used to read strings and primitive values from console
+
+- it can also read input from file from console
+    ** it breaks input into tokens delimited by whitespace
+
+    Syntax:
+
+    Scanner scanner = new Scanner(System.in);
+    // this is for primitive input from console
+
+    Scanner scanner = new Scanner(new File(filename));
+
+    or
+
+    File file = new File(path);
+    Scanner scanner = new Scanner(file);
+
+    Method(s):
+
+    +Scanner(source: File)
+    +Scanner(source: String)
+    +close()
+    +hasNext(): boolean
+    +next(): String
+    +nextLine(): String
+    +nextByte(): byte
+    +nextShort(): short
+    +nextInt(): int
+    +nextLong(): long
+    +nextFloat(): float
+    +nextDouble(): double
+    +useDelimiter(pattern: String):
+    Scanner
+
+Relevant code:
+ReadData.java
+
+12.11.4 - How Does Scanner Work?
+
+- has token based / line based input
+
+    token based - nextInt(), next(), nextDouble(), etc.
+
+    ** by default, the delimiters are whitespace, to overcome this do:
+
+    useDelimiter(String regex)  // used to set up a new pattern for delimiters
+
+    line-based - reads line ending with line separator
+
+    ** Windows OS and Linux OS differ b/c their line separators are different, to overcome this do:
+
+    String lineSeparator = System.getProperty("line.separator");
+
+12.11.5 - Case Study: Replacing Text
+
+Relevant code:
+ReplaceText.java
+
+12.12: Reading Data from the Web
+
+- you can read data from a file on the web
+
+URL - uniform resourse locator -- the unique address for a file on the web
+
+    e.g.
+
+    www.google.com/index.html
+    ^^ the URL for the file index.html located on the Google web server
+
+- for application program to read data from URL, first create URL object using java.net.URL class
+
+    Syntax:
+
+    public URL(String spec) throws MalformedURLException
+
+    e.g.
+
+    try {
+        URL url = new URL("http://www.google.com/index.html");
+    } catch (MalformedURLExceptiuon ex) {
+        ex.printStackTrace();
+    }
+
+MalformedURLException - thrown if the URL string has a syntax error
+
+Relevant code:
+readFileFromURL.java
+
+12.13: Case Study: Web Crawler
+
+Relevant code:
+WebCrawler.java
+
+
+Relevant code:
+InputMismatchExceptionDemo.java
+
+// must do ch12 reading n stuff 10/28 ** ASSIGNMENTS DUE 11/2 and 11/4 DO ASAP
+
+    
+
+// **add chapter 13 here
+
+
+PHONEBOOK2 USES COMPOSITION **
+
+What is the object oriented way to create an equals method to compare two objects
+ */
