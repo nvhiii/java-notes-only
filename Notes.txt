@@ -1692,7 +1692,7 @@ MalformedURLException - thrown if the URL string has a syntax error
 Relevant code:
 readFileFromURL.java
 
-12.13: Case Study: Web Crawler
+12.13: Case Study: Web Crawler 
 
 Relevant code:
 WebCrawler.java
