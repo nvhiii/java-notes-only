@@ -1,7 +1,8 @@
 # java-notes-only
 
 Readme Tips & Tricks [Github Docs](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-[Java Notes](java-notes-only/Notes.txt)
+
+[Java Notes](main/Notes.txt)
 
 ## How do I add this Github repository to my pc?
 
