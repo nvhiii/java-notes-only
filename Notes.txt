@@ -15,7 +15,7 @@ https://itnext.io/keyboard-shortcuts-for-a-developer-e6d1203774f6
 
 https://www.indiatoday.in/information/story/computer-shortcut-keys-everyone-should-know-1480158-2019-03-17
 
-test test test
+
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Chapter 9) Objects and Classes
@@ -1374,8 +1374,8 @@ DistinctNumbers.java
     String[] array = {"red", "green", "blue"};
     ArrayList<String> list = new ArrayList<>(Arrays.asList(array)); // turns Array to ArrayList
 
-    String[] array1 = new Stringp[list.size()]
-    list.toArray(array1);   // turns ArrayList into Array
+    String[] array1 = new String[list.size()]
+    array1 = list.toArray(array1);   // turns ArrayList into Array
 
     Integer[] array = {3, 5, 95, 4, 15, 34, 3, 5, 6};
     ArrayList<Integer> list = new ArrayList<>(Arrays.asList(array));
@@ -1504,7 +1504,7 @@ InputMismatchExceptionDemo.java
 
 ** The class names Error, Exception, and RuntimeException are all exceptions and all of the errors occur at runtime
 
-- you can create own exception classes by extending Eception or a subclass of Exception
+- you can create own exception classes by extending Exeption class or one of it's subclasses
 
 - exception classes can be classified into 3 major types:
     1. System errors - thrown by JVM and are represented in the Error class
@@ -1670,7 +1670,7 @@ Relative file name - the file name without the path
 
 ** directory separator in Windows is a "\", but in a string literal it should be written as "\\"
 
-** never use absolute file names in program
+** never use absolute file path in a program
     ** this is because the code may not work in other Operating Systems (e.g. Linux, OS, etc)
 
 ** forward slashes work on all platforms
