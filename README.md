@@ -4,7 +4,7 @@ Readme Tips & Tricks: [Github Docs](https://docs.github.com/en/github/writing-on
 
 Java Notes [Notes](Notes.txt) <!-- I am just testing out github repo such as relative links, etc. -->
 
-## How do I add this Github repository to my pc?
+## How do I add this Github repository to my pc?[^1]
 
 1. Copy the repo first (top right corner there is a green button labelled "Code". Click on that button and then select the HTTPS clone link
 
@@ -36,7 +36,7 @@ C:\Users\User\Desktop>
 git clone (link)
 ```
 
-   - (link) should be copied from step 1 [^1]
+   - (link) should be copied from step 1 [^2]
 
 6. When all is said and done, the command prompt should take a few seconds to a minute to clone the repo in your Desktop, so you can access all the notes and code from this repo!
 
@@ -47,8 +47,11 @@ git clone (link)
 ## Progress
 - [ ] Finished the Readme
 - [ ] Finished all the Notes
+- [ ] Tutorial optimization for Linux
+- [ ] Tutorial optimization for macOS
 
 ## Honorable Contributor(s):
 @asror1
 
-[^1]: The link should be the copied HTTPS link
+[^1]: Please keep in mind this tutorial is based on the Windows OS as of right-now
+[^2]: The link should be the copied HTTPS link
