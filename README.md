@@ -128,7 +128,7 @@ git push
 1. Email me @ nahikhan16@gmail.com
 
 <p align = "center">
-> Cheers - Nahi! :shipit:
+Cheers! - Nahi! :shipit:
 </p>
 
 ## Progress
