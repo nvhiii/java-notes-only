@@ -44,7 +44,9 @@ git clone (link)
 ## How Can I Commit and Push to this Repository?[^3]
 *Part 2*
 
-***PREREQUISITE: MUST HAVE ALREADY CLONED AND PULLED THIS REPO***
+***PREREQUISITES:***
+- Must have already cloned the repo onto your machine
+- Must have REPOSITORY ACCESS
 
 1. After fulfilling the prerequisites, you must change directory into the directory of the Github repo. For this example, I am assuming that the cloned repo is in the Desktop as per part 1.
    - Open the terminal using the Windows-Key + r and entering "cmd" without the quotations and then press enter
