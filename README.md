@@ -140,6 +140,8 @@ Cheers! - Nahi! :shipit:
 ## Honorable Contributor(s):
 @asror1
 
+<!-- Also just realized I can use raw HTML and inline CSS in a readme bruh -->
+
 [^1]: Please keep in mind this tutorial is based on the Windows OS as of right-now
 [^2]: The link should be the copied HTTPS link
 [^3]: Once again, please keep in mind this tutorial is based on the Windows OS as of right-now
