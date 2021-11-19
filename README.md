@@ -40,7 +40,7 @@ git clone (link)
 
 ## How Can I Commit and Push to this Repository?
 
-##Progress
+## Progress
 - [ ] Finished the Readme
 - [ ] Finished all the Notes
 
