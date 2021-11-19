@@ -4,6 +4,9 @@ Readme Tips & Tricks: [Github Docs](https://docs.github.com/en/github/writing-on
 
 Java [Notes](Notes.txt) <!-- I am just testing out github repo such as relative links, etc. -->
 
+Repo [Cloning](https://github.com/nvhiii/java-notes-only/blob/main/README.md#how-do-i-add-this-github-repository-to-my-pc1)
+Repo [Committing & Pushing]()
+
 ## How do I add this Github repository to my pc?[^1]
 *Part 1*
 
