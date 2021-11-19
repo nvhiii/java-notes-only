@@ -37,11 +37,11 @@ C:\Users\User\Desktop>
 git clone (link)
 ```
 
-   - (link) should be copied from step 1 [^2]
+   - (link) should be copied from step 1[^2]
 
 6. When all is said and done, the command prompt should take a few seconds to a minute to clone the repo in your Desktop, so you can access all the notes and code from this repo!
 
-## How Can I Commit and Push to this Repository?
+## How Can I Commit and Push to this Repository?[^3]
 *Part 2*
 
 ***PREREQUISITE: MUST HAVE ALREADY CLONED AND PULLED THIS REPO***
@@ -128,3 +128,4 @@ git push
 
 [^1]: Please keep in mind this tutorial is based on the Windows OS as of right-now
 [^2]: The link should be the copied HTTPS link
+[^3]: Once again, please keep in mind this tutorial is based on the Windows OS as of right-now
