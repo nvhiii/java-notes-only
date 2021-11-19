@@ -9,6 +9,8 @@ Repo [Cloning](https://github.com/nvhiii/java-notes-only/blob/main/README.md#how
 
 Repo [Committing & Pushing](https://github.com/nvhiii/java-notes-only/blob/main/README.md#how-can-i-commit-and-push-to-this-repository3)
 
+How to get [Repo Access](https://github.com/nvhiii/java-notes-only/blob/main/README.md#how-to-gain-repo-access)
+
 ## How do I add this Github repository to my pc?[^1]
 *Part 1*
 
