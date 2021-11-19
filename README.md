@@ -46,4 +46,7 @@ git clone (link)
 - [ ] Finished the Readme
 - [ ] Finished all the Notes
 
+## Honorable Contributor(s):
+@asror1
+
 [^1]: The link should be the copied HTTPS link
