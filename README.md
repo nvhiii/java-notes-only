@@ -42,7 +42,7 @@ git clone (link)
 
 ## How Can I Commit and Push to this Repository?
 
-> Cheers - Nahi!
+> Cheers - Nahi! :shipit:
 
 ## Progress
 - [ ] Finished the Readme
