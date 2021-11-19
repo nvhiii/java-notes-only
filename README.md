@@ -122,6 +122,9 @@ git push
 
 7. To double-check, you can go on github and you should see the repo now updated!
 
+## How to gain Repo Access?
+1. Email me @ nahikhan16@gmail.com
+
 > Cheers - Nahi! :shipit:
 
 ## Progress
