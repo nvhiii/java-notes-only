@@ -2,7 +2,7 @@
 
 Readme Tips & Tricks: [Github Docs](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
-Java Notes [Notes](Notes.txt) <!-- I am just testing out github repo such as relative links, etc. -->
+Java [Notes](Notes.txt) <!-- I am just testing out github repo such as relative links, etc. -->
 
 ## How do I add this Github repository to my pc?[^1]
 
