@@ -2,7 +2,7 @@
 
 Readme Tips & Tricks: [Github Docs](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
-Java Notes [Java Notes](main/Notes.txt)
+Java Notes [Notes](Notes.txt)
 
 ## How do I add this Github repository to my pc?
 
