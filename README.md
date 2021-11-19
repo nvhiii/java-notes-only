@@ -127,7 +127,9 @@ git push
 ## How to gain Repo Access?
 1. Email me @ nahikhan16@gmail.com
 
+<p align = "center">
 > Cheers - Nahi! :shipit:
+</p>
 
 ## Progress
 - [ ] Finished the Readme
