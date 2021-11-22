@@ -1374,8 +1374,8 @@ DistinctNumbers.java
     String[] array = {"red", "green", "blue"};
     ArrayList<String> list = new ArrayList<>(Arrays.asList(array)); // turns Array to ArrayList
 
-    String[] array1 = new String[list.size()]
-    array1 = list.toArray(array1);   // turns ArrayList into Array
+    String[] array1 = new Stringp[list.size()]
+    list.toArray(array1);   // turns ArrayList into Array
 
     Integer[] array = {3, 5, 95, 4, 15, 34, 3, 5, 6};
     ArrayList<Integer> list = new ArrayList<>(Arrays.asList(array));
@@ -1504,7 +1504,7 @@ InputMismatchExceptionDemo.java
 
 ** The class names Error, Exception, and RuntimeException are all exceptions and all of the errors occur at runtime
 
-- you can create own exception classes by extending Exeption class or one of it's subclasses
+- you can create own exception classes by extending Eception or a subclass of Exception
 
 - exception classes can be classified into 3 major types:
     1. System errors - thrown by JVM and are represented in the Error class
@@ -1528,6 +1528,10 @@ InputMismatchExceptionDemo.java
         **All other exceptions other than runtime and errors are checked exceptions, needing try and catch blocks
 
     stack diagram is a very good way to trace exception rethrows** also in main, the "throw exception" is optional
+
+Reference:
+
+execptionHierarchy.PNG (this is in the same dir as this txt file)
 
 12.4: More on Exception Handling
 
@@ -1670,7 +1674,7 @@ Relative file name - the file name without the path
 
 ** directory separator in Windows is a "\", but in a string literal it should be written as "\\"
 
-** never use absolute file path in a program
+** never use absolute file names in program
     ** this is because the code may not work in other Operating Systems (e.g. Linux, OS, etc)
 
 ** forward slashes work on all platforms
@@ -1823,7 +1827,7 @@ MalformedURLException - thrown if the URL string has a syntax error
 Relevant code:
 readFileFromURL.java
 
-12.13: Case Study: Web Crawler 
+12.13: Case Study: Web Crawler
 
 Relevant code:
 WebCrawler.java
