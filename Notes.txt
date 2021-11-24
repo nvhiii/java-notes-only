@@ -1361,6 +1361,37 @@ More things to know:
 
 - Arrays can be multi-dimensional, ArrayLists are always one dimensional
 
+    e.g.
+
+    public SimpleAL() {
+        this(CAPACITY);
+    }
+
+    public SimpleAL(int initialCap) {
+        myarr = new int[initialCap];
+        numElts = 0;
+    }
+
+    public void add(int num) {
+        if (numElts == myarr.length) {
+
+            return ;
+        }
+        myarr[numElts++] = num;
+    }
+
+    public int size() {
+        return numElts;
+    }
+
+    public boolean isEmpty() {
+        return numElts == 0;
+    }
+
+    public static void main(String[] args) {
+
+    }
+
 Relevant code:
 TestArrayList.java
 DistinctNumbers.java
@@ -2044,4 +2075,18 @@ Keywords:
     - super
     - this
     - more to be added...
+
+11/24 Notes:
+1. ArrayList
+2. Generics
+3. Single iplementation of ArrayLis (get array as a field)
+4. Wrapper classes in PDTs boxing and unboxing
+5. COmparable Interfaces
+6. Command Line Args
+7. recursion
+
+** It is more efficient always to only read in data once, you should not want to read in data multiple times, it is considered "time expensive"
+
+
+
  */
