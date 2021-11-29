@@ -542,9 +542,12 @@ static parsing methods
 
 boxing - conversion of a primitive value to a wrapper object
 
+PDT - primitive data type
 autoboxing - when the compiler automatically boxes a primitve value in a context requiring an object
+    ** this is basically when the object class is on the left side of the equals sign alongside the objRefVar
 
 unboxing - conversion of a wrapper object to a primitive value
+    ** this is when the non-obj on the left side of the equals size alongside the objRefVar
 
 autounboxing - when the compiler automatically unxboxes an object in a context requiring a primitive value
 
@@ -557,8 +560,13 @@ e.g.:
 
     **this is due to autoboxing**
 
-    int i = 1; (is equal to)
+    int i = 1; (is equal to)        // this is depractated, should not be used over boxing
     Integer i = new Integer(1);
+
+    better example:
+
+    Integer num = 10;
+    int num2 = num; PDT is set to Integer var
 
     **this is due to autounboxing
 
@@ -2087,6 +2095,15 @@ Keywords:
 
 ** It is more efficient always to only read in data once, you should not want to read in data multiple times, it is considered "time expensive"
 
+11/29 Notes:
+
+- PDT variables
+- boxing
+- autoboxing
+- unboxing
+- autounboxing
+
+Recursion - calling yourself
 
 
  */
