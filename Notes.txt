@@ -2104,6 +2104,57 @@ Keywords:
 - autounboxing
 
 Recursion - calling yourself
+11/01 Notes: 
 
+- Using recursion for Fibonacci Sequence
+- Using recursion to calc factorials
+- Using recursion to calcutate division with substraction
+- Recursion is when you define something using itself. 
+- Two main aspects of Recursion is the Base case, and Recursive case. 
+- Sometimes recursion is not practical, for example: calculation fibonacci numbers. 
+- Recursion could replace iteration, however depending on the situation one might be 
+better to use that the other. 
+- Source Code for Binary Search using Recursion: 
+
+public static int binarySearch(int arr[], int left, int right, int elem) {
+
+	// left is initially 0, right is initially arr.length-1
+	// elem is the element you're looking for
+	// arr is the array that you are searching 
+
+	// KEY CONDITION FOR BINARY SEARCH: THE ARRAY MUST BE SORTED BEFORE HAND**
+
+		if(left<=right) {
+			
+	// using an instance variable or any 
+	// variable you could verify that this implementation 
+	// produces Omega(log2N) time / work. (you could do something like... 	// searchingTimeComplexity++; inside the main if statement of this method. 
+
+			int mid_index = left+(right-left)/2;
+			int mid = arr[mid_index];
+	// mid_index is the index of the middle element of the array
+	// mid is the middle element 					
+
+			
+			if(mid==elem) {
+		// if middle element is what we're looking for we return it
+				return mid_index; 
+			}
+		// otherwise search the left size of the array or sub array
+			else if(elem < mid){
+				 return binarySearch(arr, left, mid_index, elem );
+			}
+		// or search the right size of the array or sub array 
+			else if(elem > mid) {
+				return binarySearch(arr, mid_index+1, right, elem);
+			}
+		}
+		
+		// Key Point: the array must be either sorted in acending order, 
+		// or the logical operators above need to be reversed for 
+		// elem < mid into elem > mid, and elem > mid into elem < mid for an 		// array sorted in decending order. 
+		return -1;
+		
+	}
 
  */
