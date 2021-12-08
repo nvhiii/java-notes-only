@@ -2156,5 +2156,121 @@ public static int binarySearch(int arr[], int left, int right, int elem) {
 		return -1;
 		
 	}
+	
+	
+GUI Event Handling - (JavaFX)
+	
+	- When handling events in a gui you could use lambda's when dealing with @FunctionalInterface, meaning an interface that has only one method. 
+	Example: 
+	
+public class AddSubButtonLambda extends Application {
+    int count=0;
+    TextField showCount = new TextField("0");
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+        Button buttonAdd = new Button(); 
+	buttonAdd.setText("Add 1");
+	VBox pane = new VBox(buttonAdd);
+	pane.setAlignment(Pos.CENTER);
+	pane.setSpacing(25);
+	pane.getChildren().add(showCount);
+        Button buttonSub = new Button(); 
+	buttonSub.setText("Subtract");
+	pane.getChildren().add(buttonSub);
+
+	// use a Lambda in place of a parameter to  setOnAction
+	// setOnAction method accepts an EventHandler interface, 
+	// javadoc for EventHandler - 
+	/* @FunctionalInterface
+		public interface EventHandler<T extends Event> extends EventListener */ 
+        
+	
+	buttonAdd.setOnAction(e -> { count++;
+	                             showCount.setText(Integer.toString(count));
+                                   });
+
+        buttonSub.setOnAction(e -> { count--;
+	                             showCount.setText(Integer.toString(count));
+                                   });
+	
+        Scene scene = new Scene(pane, 300, 200);
+
+	primaryStage.setTitle("How's this Button?");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+}
+	
+	- When dealing with Interfaces with more than one method, you could use an annonymous inner class. 
+	
+	Example - Anonymous inner class
+	// eventhough you could definitely do lambdas here, this is an example of an annonymous inner class. 
+	
+        button.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+	 	public void handle(ActionEvent eventObject) {
+		    count++;
+		    System.out.println("Wow, you pressed it!");
+	        }
+	});
+	
+	
+	- When you don't have too many different handlers you could have an inner class within your main class, and use the getSource() method that 
+	comes with JavaFX jdk 
+	- getSource() method will return the name of the Node 
+	
+	Example: 
+	
+public class AddSubButtonsGetSource extends Application {
+
+    int count=0;
+    TextField showCount = new TextField("0");
+    Button buttonAdd = new Button(); 
+    Button buttonSub = new Button(); 
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+	buttonAdd.setText("Add 1");
+	VBox pane = new VBox(buttonAdd);
+	pane.setAlignment(Pos.CENTER);
+	pane.setSpacing(25);
+	pane.getChildren().add(showCount);
+	buttonSub.setText("Subtract");
+	pane.getChildren().add(buttonSub);
+
+// instantiate an EventHandler object (ONLY ONE)
+	HandleAddSubButton e= new HandleAddSubButton();
+// register e with Add button 
+        buttonAdd.setOnAction(e);
+// register e with the subtract button 
+        buttonSub.setOnAction(e);
+
+// can put into 1 stmt
+//        button.setOnAction(new HandlePressButton());
+	
+        Scene scene = new Scene(pane, 300, 200);
+
+	primaryStage.setTitle("How's this Button?");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+// inner class defined soley to give me the ability to handle one particular button
+    class HandleAddSubButton implements EventHandler<ActionEvent> {
+          @Override
+	  public void handle(ActionEvent firedEvent) {
+               if (firedEvent.getSource()==buttonAdd)
+		 count++;
+	       else if (firedEvent.getSource()==buttonSub)
+	         count--;
+
+	       showCount.setText(Integer.toString(count));
+          }
+    }
+}
+
+	
 
  */
