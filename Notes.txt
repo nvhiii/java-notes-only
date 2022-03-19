@@ -1002,8 +1002,8 @@ TestCircleRectangle.java
 - Instance method can be overridden only if it is accessible
     ** private method cannot be overridden
 
-- if a a method is overridden, it cannot be called
-8
+- if a method is overridden, it cannot be called
+
 - Static method can also be inherited but cannot be overridden
 
 // This topic is sort-of confusing, will revisit this in more depth later**
