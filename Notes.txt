@@ -18,6 +18,179 @@ https://www.indiatoday.in/information/story/computer-shortcut-keys-everyone-shou
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Chapter 1) Introduction to Computers, Programs, and JAVA
+
+1.1: Introduction
+- Programming: to create/develop software, which is also called a programs
+    ** essentially instructions to tell a computer what to do
+
+- If you learn to program using one language, it should be easy to pick up other languages
+
+1.2: What is a Computer?
+- Hardware v. Software
+    Hardware: compromised of the visible elements of the computer
+        ** Not essential to learning a programming language, but helps understand effects that a program's instructions have on its components
+        - CPU
+        - Memory
+        - Storage
+        - Input
+        - Output
+        - Communication Devices
+
+    Sofware: Com
+
+1.2.1 - CPU (central processing unit)
+    Consists of 2 components
+        1. Control Unit
+        2. Logic Unit
+    Today's CPU's are built on silicon semiconductor chips containing of transistors
+
+        ^^ All above devices are connected by a system called a bus
+
+1.2.2 - Bits and Bytes
+    Byte - the minimum storage unit in a computer
+
+    Bits - digits in the binary system of the sequence of switches, 0s and 1s
+
+    Encoding Scheme - set of rules that govern how a computer translates characters and numbers into data with which the computer can actually work
+
+1.2.3 - Memory
+
+1.2.4 - Storage Devices
+
+1.2.5 - Input and Output Devices
+
+1.2.6 - Communication Devices
+
+1.3: Programming Languages
+
+1.3.1 - Machine Language
+
+1.3.2 - Assembly Language
+
+1.3.3 - High Level Language
+
+1.4: Operating Systems
+
+1.4.1 - Controlling and Monitoring System Activities
+
+1.4.2 - Allocating and Assigning System Resources
+
+1.4.3 - Scheduling Operations
+
+1.5: Java, the World Wide Web, and Beyond
+
+1.6: The Java Language Specification, API, JDK, JRE, and IDE
+
+1.7: A Simple Java Program
+
+1.8: Creating, Compiling, and Executing a Java Program
+
+1.9: Programming Style and Documentation
+
+1.9.1 - Appropriate Comments and Comment Styles
+
+1.9.2 - Proper Indentation and Spacing
+
+1.9.3 - Block Styles
+
+1.10: Programming Errors
+
+1.10.1 - Syntax Errors
+
+1.10.2 - Runtime Errors
+
+1.10.3 - Logic Errors
+
+1.10.4 - Common Errors
+
+1.11: Developing Java Programs Using NetBeans
+
+1.11.1 - Creating a Java Project
+
+1.11.2 - Creating a Java Class
+
+1.11.3 - Compiling and Running a Class
+
+1.12: Developing Java Programs Using Eclipse
+
+1.12.1 - Creating a Java Project
+
+1.12.2 - Creating a Java Class
+
+1.12.3 - Compiling and Running a Class
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Chapter 2) Elementary Programming
+
+2.1: Introduction
+
+2.2: Writing a Simple Program
+
+Relevant Code:
+ComputeArea.java
+
+2.3: Reading Input from the COnsole
+
+Relevant Code:
+
+
+2.4: Identifiers
+
+- basically the names of the variables in order to specify what each is used for essentially
+
+
+2.5: Variables
+
+
+2.6: Assingment Statments and Assignment Expressions
+
+2.7: Named Constants
+
+2.8: Naming COnventions
+
+2.9: Numeric Data Types and Operations
+
+2.10: Numeric Literals
+
+2.11: Evaluating Expression and Operator Precedence
+
+2.12: Case Study: Displaying the current Time
+
+2.13: Augmented Assignment Operators
+
+2.14: Increment and Decrement Operators
+
+2.15: Numeric Type COnversions
+
+2.16: Software Development Process
+
+2.17: Case Study: Counting Monetary Units
+
+2.18: Common Errors and Pitfallss
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Chapter 3) Selections
+
+3.1: Introduction
+
+3.2: boolean Data Type
+
+** always remember that the '==' sign is to check boolean value, and not literal mathematical operations
+    ^ Therefore, = and == are not the same!
+
+Relevant Code:
+
+AdditionQuiz.java
+
+3.3: if Statements
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Chapter 9) Objects and Classes
 
 9.1: Introduction
@@ -542,12 +715,9 @@ static parsing methods
 
 boxing - conversion of a primitive value to a wrapper object
 
-PDT - primitive data type
 autoboxing - when the compiler automatically boxes a primitve value in a context requiring an object
-    ** this is basically when the object class is on the left side of the equals sign alongside the objRefVar
 
 unboxing - conversion of a wrapper object to a primitive value
-    ** this is when the non-obj on the left side of the equals size alongside the objRefVar
 
 autounboxing - when the compiler automatically unxboxes an object in a context requiring a primitive value
 
@@ -560,13 +730,8 @@ e.g.:
 
     **this is due to autoboxing**
 
-    int i = 1; (is equal to)        // this is depractated, should not be used over boxing
+    int i = 1; (is equal to)
     Integer i = new Integer(1);
-
-    better example:
-
-    Integer num = 10;
-    int num2 = num; PDT is set to Integer var
 
     **this is due to autounboxing
 
@@ -1010,8 +1175,8 @@ TestCircleRectangle.java
 - Instance method can be overridden only if it is accessible
     ** private method cannot be overridden
 
-- if a method is overridden, it cannot be called
-
+- if a a method is overridden, it cannot be called
+8
 - Static method can also be inherited but cannot be overridden
 
 // This topic is sort-of confusing, will revisit this in more depth later**
@@ -1368,37 +1533,6 @@ More things to know:
 - Arrays can add elements in using assignment operator, ArrayList uses add() method
 
 - Arrays can be multi-dimensional, ArrayLists are always one dimensional
-
-    e.g.
-
-    public SimpleAL() {
-        this(CAPACITY);
-    }
-
-    public SimpleAL(int initialCap) {
-        myarr = new int[initialCap];
-        numElts = 0;
-    }
-
-    public void add(int num) {
-        if (numElts == myarr.length) {
-
-            return ;
-        }
-        myarr[numElts++] = num;
-    }
-
-    public int size() {
-        return numElts;
-    }
-
-    public boolean isEmpty() {
-        return numElts == 0;
-    }
-
-    public static void main(String[] args) {
-
-    }
 
 Relevant code:
 TestArrayList.java
@@ -2083,194 +2217,4 @@ Keywords:
     - super
     - this
     - more to be added...
-
-11/24 Notes:
-1. ArrayList
-2. Generics
-3. Single iplementation of ArrayLis (get array as a field)
-4. Wrapper classes in PDTs boxing and unboxing
-5. COmparable Interfaces
-6. Command Line Args
-7. recursion
-
-** It is more efficient always to only read in data once, you should not want to read in data multiple times, it is considered "time expensive"
-
-11/29 Notes:
-
-- PDT variables
-- boxing
-- autoboxing
-- unboxing
-- autounboxing
-
-Recursion - calling yourself
-11/01 Notes: 
-
-- Using recursion for Fibonacci Sequence
-- Using recursion to calc factorials
-- Using recursion to calcutate division with substraction
-- Recursion is when you define something using itself. 
-- Two main aspects of Recursion is the Base case, and Recursive case. 
-- Sometimes recursion is not practical, for example: calculation fibonacci numbers. 
-- Recursion could replace iteration, however depending on the situation one might be 
-better to use that the other. 
-- Source Code for Binary Search using Recursion: 
-
-public static int binarySearch(int arr[], int left, int right, int elem) {
-
-	// left is initially 0, right is initially arr.length-1
-	// elem is the element you're looking for
-	// arr is the array that you are searching 
-
-	// KEY CONDITION FOR BINARY SEARCH: THE ARRAY MUST BE SORTED BEFORE HAND**
-
-		if(left<=right) {
-			
-	// using an instance variable or any 
-	// variable you could verify that this implementation 
-	// produces Omega(log2N) time / work. (you could do something like... 	// searchingTimeComplexity++; inside the main if statement of this method. 
-
-			int mid_index = left+(right-left)/2;
-			int mid = arr[mid_index];
-	// mid_index is the index of the middle element of the array
-	// mid is the middle element 					
-
-			
-			if(mid==elem) {
-		// if middle element is what we're looking for we return it
-				return mid_index; 
-			}
-		// otherwise search the left size of the array or sub array
-			else if(elem < mid){
-				 return binarySearch(arr, left, mid_index, elem );
-			}
-		// or search the right size of the array or sub array 
-			else if(elem > mid) {
-				return binarySearch(arr, mid_index+1, right, elem);
-			}
-		}
-		
-		// Key Point: the array must be either sorted in acending order, 
-		// or the logical operators above need to be reversed for 
-		// elem < mid into elem > mid, and elem > mid into elem < mid for an 		// array sorted in decending order. 
-		return -1;
-		
-	}
-	
-	
-GUI Event Handling - (JavaFX)
-	
-	- When handling events in a gui you could use lambda's when dealing with @FunctionalInterface, meaning an interface that has only one method. 
-	Example: 
-	
-public class AddSubButtonLambda extends Application {
-    int count=0;
-    TextField showCount = new TextField("0");
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-
-        Button buttonAdd = new Button(); 
-	buttonAdd.setText("Add 1");
-	VBox pane = new VBox(buttonAdd);
-	pane.setAlignment(Pos.CENTER);
-	pane.setSpacing(25);
-	pane.getChildren().add(showCount);
-        Button buttonSub = new Button(); 
-	buttonSub.setText("Subtract");
-	pane.getChildren().add(buttonSub);
-
-	// use a Lambda in place of a parameter to  setOnAction
-	// setOnAction method accepts an EventHandler interface, 
-	// javadoc for EventHandler - 
-	/* @FunctionalInterface
-		public interface EventHandler<T extends Event> extends EventListener */ 
-        
-	
-	buttonAdd.setOnAction(e -> { count++;
-	                             showCount.setText(Integer.toString(count));
-                                   });
-
-        buttonSub.setOnAction(e -> { count--;
-	                             showCount.setText(Integer.toString(count));
-                                   });
-	
-        Scene scene = new Scene(pane, 300, 200);
-
-	primaryStage.setTitle("How's this Button?");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-}
-	
-	- When dealing with Interfaces with more than one method, you could use an annonymous inner class. 
-	
-	Example - Anonymous inner class
-	// eventhough you could definitely do lambdas here, this is an example of an annonymous inner class. 
-	
-        button.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-	 	public void handle(ActionEvent eventObject) {
-		    count++;
-		    System.out.println("Wow, you pressed it!");
-	        }
-	});
-	
-	
-	- When you don't have too many different handlers you could have an inner class within your main class, and use the getSource() method that 
-	comes with JavaFX jdk 
-	- getSource() method will return the name of the Node 
-	
-	Example: 
-	
-public class AddSubButtonsGetSource extends Application {
-
-    int count=0;
-    TextField showCount = new TextField("0");
-    Button buttonAdd = new Button(); 
-    Button buttonSub = new Button(); 
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-
-	buttonAdd.setText("Add 1");
-	VBox pane = new VBox(buttonAdd);
-	pane.setAlignment(Pos.CENTER);
-	pane.setSpacing(25);
-	pane.getChildren().add(showCount);
-	buttonSub.setText("Subtract");
-	pane.getChildren().add(buttonSub);
-
-// instantiate an EventHandler object (ONLY ONE)
-	HandleAddSubButton e= new HandleAddSubButton();
-// register e with Add button 
-        buttonAdd.setOnAction(e);
-// register e with the subtract button 
-        buttonSub.setOnAction(e);
-
-// can put into 1 stmt
-//        button.setOnAction(new HandlePressButton());
-	
-        Scene scene = new Scene(pane, 300, 200);
-
-	primaryStage.setTitle("How's this Button?");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-// inner class defined soley to give me the ability to handle one particular button
-    class HandleAddSubButton implements EventHandler<ActionEvent> {
-          @Override
-	  public void handle(ActionEvent firedEvent) {
-               if (firedEvent.getSource()==buttonAdd)
-		 count++;
-	       else if (firedEvent.getSource()==buttonSub)
-	         count--;
-
-	       showCount.setText(Integer.toString(count));
-          }
-    }
-}
-
-	
-
  */
