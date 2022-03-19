@@ -2217,4 +2217,54 @@ Keywords:
     - super
     - this
     - more to be added...
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Chapter 20) Lists, Stacks, Queues, and Priority Queues
+
+20.1: Introduction
+
+Data structure - a collection of data organized in some fashion
+    ** also supports operations for accessing and manipulating the data
+
+    ** referred to as a container or a container object in OOP
+        (object that stores other objects, referred to as data or elements)
+
+     ** this is basically the definition of a class
+
+     ** Data structures are used to organize and manipulate data, and this is often referred to as the Java Collections Framework
+
+20.2: Collections
+
+- interface which defines the common operations for lists, vectors, stacks, queues, priority queues, and sets
+
+2 types of Containers:
+    - Storage, called a collection
+    - stores keys and corresponding value pairs, a map
+
+Types of Collections:
+    Sets - store a group of nonduplicate elements
+
+    Lists - store an ordered collection of elements
+
+    Stacks - store objects that are processed in a last-in, first-out fashion (LIFO)
+
+    Queues - store objects that are process in a first-in, first-out fashion (FIFO)
+
+    PriorityQueues - store objects that are processed in the order of their priorities
+
+    Methods:
+
+    +iterator():
+    +forEach(
+
+20.3: Iterators
+
+- a design pattern for walking through a data structure without having to expose the details of how data is stored in the data structure
+
+- Collection interface extends the Iterable interface
+
+20.4: Using the forEach Method
+
+
+
  */
