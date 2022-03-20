@@ -2257,13 +2257,84 @@ Types of Collections:
     +iterator():
     +forEach(
 
+    Syntax:
+
+    ArrayList<String> collection = new ArrayList<>();
+
+Relevant Code:
+TestCollection.java
+
 20.3: Iterators
 
 - a design pattern for walking through a data structure without having to expose the details of how data is stored in the data structure
 
 - Collection interface extends the Iterable interface
 
+- the Iterator will always iterate over the Collection type
+    e.g. Integer, String, other data types
+
+    Syntax:
+
+    Iterator<String> iterator = collectionName.iterator();
+    while (iterator.hasNext()) {
+        System.out.print(iterator.next().toUpperCase() + " ");  // ** the toUpperCase method is not a necessary method here
+    }
+
+Relevant Code:
+TestIterator.java
+
 20.4: Using the forEach Method
+
+- method takes an argument for specifying the action
+
+    Syntax:
+
+    Collection<String> collection = new ArrayList<>();
+
+    colletion.forEach(e -> System.out.print(e.toUpperCase() + " "));
+
+Relevant Code:
+TestForEach.java
+
+20.5: Lists
+
+- extends the Collection interface and defines a collection for storing elements in a sequential order
+
+2 concrete classes:
+    1. ArrayList
+    2. LinkedList
+
+20.5.1 - The Common Methods in the List Interface
+
+    Methods:
+
+    ** insert the methods here **
+
+20.5.2 - The ArrayList and LinkedList Class
+
+ArrayList - should be used to access randomly without inserting or removing elements at the beginning of the list
+
+LinkedList - should be used to access randomly and also inserting or removing elements at the beginning of the list
+
+Relevant Code:
+TestArrayAndLinkedList.java
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
