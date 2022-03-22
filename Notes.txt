@@ -2291,7 +2291,7 @@ TestIterator.java
 
     Collection<String> collection = new ArrayList<>();
 
-    colletion.forEach(e -> System.out.print(e.toUpperCase() + " "));
+    collection.forEach(e -> System.out.print(e.toUpperCase() + " "));
 
 Relevant Code:
 TestForEach.java
@@ -2314,10 +2314,78 @@ TestForEach.java
 
 ArrayList - should be used to access randomly without inserting or removing elements at the beginning of the list
 
+    ** Basically good for not altering a sequential collection
+
 LinkedList - should be used to access randomly and also inserting or removing elements at the beginning of the list
+
+    ** For some reason, you cannot mix up .add and .add method w/ indexing or else error thrown
+    ** Basically can move around stuff at ease, very useful stuff
+
 
 Relevant Code:
 TestArrayAndLinkedList.java
+
+20.6: the Comparator Interface
+
+Can be used to compare the objects of a class that doesn't implement comparable or define a new criteria for comparing objects
+
+
+Relevant Code:
+GeometricObjectComparator.java
+TestComparator.java
+SortStringByLength.java
+SortStringIgnoreCase.java
+
+20.7: Static Methods for Lists and Collections
+
+    Methods:
+
+    ** insert methods here **
+
+20.8: Case Study - Bouncing Balls
+
+Relevant Code:
+MultipleBounceBall.java
+
+20.9: Vector and Stack Classes
+
+Vector is a subclass of AbstractList and Stack is a subclass of Vector in the Java API
+
+- this is the same as an ArrayList, but it contains synchronized methods for accessing and modifying the vector
+    ** said methods can prevent data corruption when the vector is accessed and modified by 2 or more threads
+
+    Methods:
+
+    ** insert methods here **
+
+    ** All these methods are very similar to the List interface methods
+
+- Stacks are implemented as an extension of vector
+
+20.10: Queues and Priority Queues
+
+- In a priority queue, the element with the highest priority is removed first
+
+20.10.1 - The Queue Interface
+
+    Methods:
+
+    ** insert methods here **
+
+20.10.2 - Deque and LinkedList
+
+LinkedList class implements Deque interface, which extends Queue interface
+
+Deque - Double-ended queue, "deck", and it extends Queue interface w/ extra methods
+        for inserting and removing elements from both ends of the queue
+
+Relevant Code:
+TestQueue.java
+PriorityQueueDemo.java
+
+20.11: Case Study - Evaluating Expressions
+
+
 
 
 
