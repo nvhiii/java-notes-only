@@ -2254,8 +2254,48 @@ Types of Collections:
 
     Methods:
 
-    +iterator():
-    +forEach(
+    ** java.lang.Iterable<E> **
+
+    +iterator(): Iterator<E>    Returns an iterator for the elements in this collection.
+
+    +forEach(action: Consumer<? super E>):  Performs an action for each element in this iterator.
+    default void
+
+    ** java.util.Collection<E> **
+
+    +add(e: E): boolean             Adds a new element e to this collection.
+
+    +addAll(c: Collection<? extends E>): boolean    Adds all the elements in the collection c to this collection.
+
+    +clear(): void                  Removes all the elements from this collection.
+
+    +contains(o: Object): boolean   Returns true if this collection contains the element o.
+
+    +containsAll(c: Collection<?>): boolean         Returns true if this collection contains all the elements in c.
+
+    +equals(o: Object): boolean
+
+    +isEmpty(): boolean             Returns true if this collection contains no elements.
+
+    +remove(o: Object): boolean     Removes the element o from this collection.
+
+    +removeAll(c: Collection<?>): boolean           Removes all the elements in c from this collection.
+
+    +retainAll(c: Collection<?>): boolean           Retains the elements that are both in c and in this collection.
+
+    +size(): int                    Returns the number of elements in this collection.
+
+    +toArray(): Object[]            Returns an array of Object for the elements in this collection.
+
+    +toArray(a: T[]): T[]           Returns an array of the T[] type.
+
+    ** java.util.Iterator<E> **
+
+    +hasNext(): boolean             Returns true if this iterator has more elements to traverse.
+
+    +next(): E                      Returns the next element from this iterator.
+
+    +remove(): void                 Removes the last element obtained using the next method.
 
     Syntax:
 
@@ -2308,11 +2348,36 @@ TestForEach.java
 
     Methods:
 
-    ** insert the methods here **
+    +add(index: int, element: E): void                  Adds a new element at the specied index.
+
+    +addAll(index: int, c: Collection<? extends E>)     Adds all the elements in c to this list at the specied
+     : boolean                                          index.
+
+    +get(index: int): E                                 Returns the element in this list at the specied index.
+
+    +indexOf(element: Object): int                      Returns the index of the first matching element.
+
+    +lastIndexOf(element: Object): int                  Returns the index of the last matching element.
+
+    +listIterator(): ListIterator<E>                    Returns the list iterator for the elements in this list.
+
+    +listIterator(startIndex: int): ListIterator<E>     Returns the iterator for the elements from startIndex.
+
+    +remove(index: int) : E                             Removes the element at the specied index and returns
+                                                        the removed element.
+
+    +set(index: int, element: E): E                     Sets the element at the specied index and returns the
+                                                        old element.
+
+    +subList(fromIndex: int, toIndex: int)              Returns a sublist from fromIndex to toIndex-1.
 
 20.5.2 - The ArrayList and LinkedList Class
 
 ArrayList - should be used to access randomly without inserting or removing elements at the beginning of the list
+
+    - is dynamically created
+    - capacity increases automatically
+    - if capacity of the array is exceeded, a larger new array is created and all the elements from the current array are copied to the new array
 
     ** Basically good for not altering a sequential collection
 
@@ -2320,6 +2385,36 @@ LinkedList - should be used to access randomly and also inserting or removing el
 
     ** For some reason, you cannot mix up .add and .add method w/ indexing or else error thrown
     ** Basically can move around stuff at ease, very useful stuff
+
+
+    Methods:
+
+    +ArrayList()                                Creates an empty list with the default initial capacity.
+
+    +ArrayList(c: Collection<? extends E>)      Creates an array list from an existing collection.
+
+    +ArrayList(initialCapacity: int)            Creates an empty list with the specied initial capacity.
+
+    +trimToSize(): void                         Trims the capacity of this ArrayList instance to be
+                                                the list’s current size.
+
+
+
+    +LinkedList()                              Creates a default empty linked list.
+
+    +LinkedList(c: Collection<? extends E>)     Creates a linked list from an existing collection.
+
+    +addFirst(element: E): void                 Adds the element to the head of this list.
+
+    +addLast(element: E): void                  Adds the element to the tail of this list.
+
+    +getFirst(): E                              Returns the rst element from this list.
+
+    +getLast(): E                               Returns the last element from this list.
+
+    +removeFirst(): E                           Returns and removes the rst element from this list.
+
+    +removeLast(): E                            Returns and removes the last element from this list.
 
 
 Relevant Code:
@@ -2340,7 +2435,30 @@ SortStringIgnoreCase.java
 
     Methods:
 
-    ** insert methods here **
+    +sort(list: List): void
+    +sort(list: List, c: Comparator): void
+    +binarySearch(list: List, key: Object): int
+    +binarySearch(list: List, key: Object, c:
+    Comparator): int
+    +reverse(list: List): void
+    +reverseOrder(): Comparator
+    +shuffle(list: List): void
+    +shuffle(list: List, rmd: Random): void
+    +copy(des: List, src: List): void
+    +nCopies(n: int, o: Object): List
+    +fill(list: List, o: Object): void
+
+    ^^ List Methods ^^
+
+    +max(c: Collection): Object
+    +max(c: Collection, c: Comparator): Object
+    +min(c: Collection): Object
+    +min(c: Collection, c: Comparator): Object
+    +disjoint(c1: Collection, c2: Collection):
+    boolean
+    +frequency(c: Collection, o: Object): int
+
+    ^^ Collection Methods ^^
 
 20.8: Case Study - Bouncing Balls
 
@@ -2356,7 +2474,25 @@ Vector is a subclass of AbstractList and Stack is a subclass of Vector in the Ja
 
     Methods:
 
-    ** insert methods here **
+    +Vector()
+    +Vector(c: Collection<? extends E>)
+    +Vector(initialCapacity: int)
+    +Vector(initCapacity: int, capacityIncr: int)
+    +addElement(o: E): void
+    +capacity(): int
+    +copyInto(anArray: Object[]): void
+    +elementAt(index: int): E
+    +elements(): Enumeration<E>
+    +ensureCapacity(): void
+    +rstElement(): E
+    +insertElementAt(o: E, index: int): void
+    +lastElement(): E
+    +removeAllElements(): void
+    +removeElement(o: Object): boolean
+    +removeElementAt(index: int): void
+    +setElementAt(o: E, index: int): void
+    +setSize(newSize: int): void
+    +trimToSize(): void
 
     ** All these methods are very similar to the List interface methods
 
@@ -2370,7 +2506,11 @@ Vector is a subclass of AbstractList and Stack is a subclass of Vector in the Ja
 
     Methods:
 
-    ** insert methods here **
+    +offer(element: E): boolean
+    +poll(): E
+    +remove(): E
+    +peek(): E
+    +element(): E
 
 20.10.2 - Deque and LinkedList
 
