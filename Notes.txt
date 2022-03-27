@@ -2435,28 +2435,43 @@ SortStringIgnoreCase.java
 
     Methods:
 
-    +sort(list: List): void
-    +sort(list: List, c: Comparator): void
-    +binarySearch(list: List, key: Object): int
-    +binarySearch(list: List, key: Object, c:
-    Comparator): int
-    +reverse(list: List): void
-    +reverseOrder(): Comparator
-    +shuffle(list: List): void
-    +shuffle(list: List, rmd: Random): void
-    +copy(des: List, src: List): void
-    +nCopies(n: int, o: Object): List
-    +fill(list: List, o: Object): void
+    +sort(list: List): void                         Sorts the specied list.
+
+    +sort(list: List, c: Comparator): void          Sorts the specified list with the comparator.
+
+    +binarySearch(list: List, key: Object): int     Searches the key in the sorted list using binary search.
+
+    +binarySearch(list: List, key: Object, c: Comparator): int         Searches the key in the sorted list using binary search
+                                                                       with the comparator.
+
+    +reverse(list: List): void                      Reverses the specied list.
+
+    +reverseOrder(): Comparator                     Returns a comparator with the reverse ordering.
+
+    +shuffle(list: List): void                      Shufes the specied list randomly.
+
+    +shuffle(list: List, rmd: Random): void         Shufes the specied list with a random object.
+
+    +copy(des: List, src: List): void               Copies from the source list to the destination list.
+
+    +nCopies(n: int, o: Object): List               Returns a list consisting of n copies of the object.
+
+    +fill(list: List, o: Object): void              Fills the list with the object.
 
     ^^ List Methods ^^
 
-    +max(c: Collection): Object
-    +max(c: Collection, c: Comparator): Object
-    +min(c: Collection): Object
-    +min(c: Collection, c: Comparator): Object
-    +disjoint(c1: Collection, c2: Collection):
-    boolean
-    +frequency(c: Collection, o: Object): int
+    +max(c: Collection): Object                     Returns the max object in the collection.
+
+    +max(c: Collection, c: Comparator): Object      Returns the max object using the comparator.
+
+    +min(c: Collection): Object                     Returns the min object in the collection.
+
+    +min(c: Collection, c: Comparator): Object      Returns the min object using the comparator.
+
+    +disjoint(c1: Collection, c2: Collection): boolean      Returns true if c1 and c2 have no elements in common.
+
+    +frequency(c: Collection, o: Object): int       Returns the number of occurrences of the specied
+                                                    element in the collection.
 
     ^^ Collection Methods ^^
 
@@ -2528,7 +2543,14 @@ PriorityQueueDemo.java
 Relevant Code:
 EvaluateExpresison.java
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Chapter 24) Implementing Lists, Stacks, Queues, and Priority Queues
+** This is linked lists, array lists, circular-linear lists, doubly linked lists, sorted lists, binary trees, recursive tree traversal methods
 
+24.1: Introduction
+
+24.2: Common Operations for Lists
+- 
 
 
 
